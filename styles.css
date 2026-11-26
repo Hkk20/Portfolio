@@ -107,8 +107,10 @@ a { color: inherit; }
   transform: translateX(-50%); display: block;
   @media (prefers-reduced-motion: no-preference) { transition: transform 1.5s var(--ease) .1s; }
 }
-/* The <picture> around the photo takes no part in the layout. */
+/* The <picture> around the photo takes no part in the layout. Its <source> would otherwise become an
+   empty flex item and push the top edge (and the menu) down to the middle of the opening. */
 .hero picture { display: contents; }
+.hero source { display: none; }
 .front {
   position: absolute; inset: 0; z-index: 4; pointer-events: none; color: #fff;
   clip-path: inset(0 calc(50% - var(--gap, 0px) - var(--frr)) var(--fb) calc(50% + var(--gap, 0px) - var(--fl)));
