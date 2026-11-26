@@ -65,25 +65,42 @@
   }
 
   /* ---------------------------------------------------------- dark / light */
-  const html = document.documentElement, mode = $("#mode"), flip = $("#flip"), tint = $('meta[name="theme-color"]');
-  let dark = html.classList.contains("dark"), turning = false, swap = false;
+  // The page follows the system setting. The button can pin the other one, kept in <meta name="color-scheme">
+  // (CSS reads it from there) and in localStorage. Picking what the system already shows removes the pin.
+  const html = document.documentElement, mode = $("#mode"), flip = $("#flip");
+  const scheme = $('meta[name="color-scheme"]'), tints = document.querySelectorAll('meta[name="theme-color"]');
+  const sysDark = matchMedia("(prefers-color-scheme: dark)");
+  const isDark = () => scheme.content === "dark" || (scheme.content !== "light" && sysDark.matches);
+  let dark = isDark(), turning = false, swap = false;
   const label = () => {
     mode.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
-    tint.content = dark ? "#0b0b0b" : "#f4f4f4";
+    tints.forEach((m) => { m.content = dark ? "#0b0b0b" : "#f4f4f4"; });
   };
   label();
+  const pin = (value) => {
+    scheme.content = value === "light" || value === "dark" ? value : "light dark";
+    dark = isDark();
+    label();
+  };
   // The disc already shows the opposite, so the real colours change in the same frame it is removed.
   const settle = () => {
     html.classList.add("still");
-    dark = !dark;
-    html.classList.toggle("dark", dark);
+    const want = dark ? "light" : "dark", keep = want !== (sysDark.matches ? "dark" : "light");
+    try { if (keep) localStorage.setItem("mode", want); else localStorage.removeItem("mode"); } catch (e) { /* private window */ }
+    pin(keep ? want : null);
     html.classList.remove("turning");
     flip.style.visibility = "hidden";
     turning = false;
-    label();
-    try { localStorage.setItem("mode", dark ? "dark" : "light"); } catch (e) { /* private window */ }
     requestAnimationFrame(() => html.classList.remove("still"));
   };
+  // The system setting or another tab can change the scheme at any time.
+  const resync = () => { if (!turning) { dark = isDark(); label(); force = true; } };
+  sysDark.addEventListener("change", resync);
+  addEventListener("storage", (e) => {
+    if (e.key !== "mode" && e.key !== null) return;
+    pin(e.newValue);
+    force = true;
+  });
   mode.addEventListener("click", () => {
     if (turning) return;
     if (calm.matches) { settle(); force = true; return; }

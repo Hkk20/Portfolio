@@ -3,9 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Follows the system light/dark setting; the mode button can pin one, and it is restored here before first paint. -->
+  <meta name="color-scheme" content="light dark">
+  <script>try { var m = localStorage.getItem("mode"); if (m === "light" || m === "dark") document.querySelector('meta[name="color-scheme"]').content = m; } catch (e) {}</script>
   <title>Harsha Yarra</title>
   <meta name="description" content="Harsha Yarra, 18, from Andhra Pradesh. Founder of XEdge. I get obsessed with things and build them.">
-  <meta name="theme-color" content="#f4f4f4">
+  <meta name="theme-color" content="#f4f4f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Harsha Yarra">
   <meta property="og:description" content="I get obsessed with things and build them.">
@@ -14,7 +18,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&display=swap">
   <link rel="stylesheet" href="styles.css">
-  <script>try { if (localStorage.getItem("mode") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,7 +42,10 @@
   <section class="hero" id="top">
     <div class="frame" aria-hidden="true"></div>
     <h1 class="name" id="name"><span>Harsha</span> <span>Yarra</span></h1>
-    <img class="photo" id="photo" src="me.webp" width="1475" height="1500" alt="Harsha Yarra" fetchpriority="high">
+    <picture>
+      <source srcset="me.avif" type="image/avif">
+      <img class="photo" id="photo" src="me.webp" width="1475" height="1500" alt="Harsha Yarra" fetchpriority="high">
+    </picture>
     <!-- The name again, only where it crosses the photo. It uses the photo itself as its cut-out shape. -->
     <div class="front" aria-hidden="true"><p class="name"><span>Harsha</span> <span>Yarra</span></p></div>
     <div class="edge top">

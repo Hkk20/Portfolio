@@ -10,6 +10,7 @@ const files = {
   "/styles.css": ["styles.css", "text/css; charset=utf-8"],
   "/main.js": ["main.js", "text/javascript; charset=utf-8"],
   "/me.webp": ["me.webp", "image/webp"],
+  "/me.avif": ["me.avif", "image/avif"],
 };
 
 createServer(async (req, res) => {
@@ -20,7 +21,7 @@ createServer(async (req, res) => {
   }
   try {
     const body = await readFile(fileURLToPath(new URL(hit[0], import.meta.url)));
-    res.writeHead(200, { "content-type": hit[1], "cache-control": "no-store", "x-content-type-options": "nosniff" });
+    res.writeHead(200, { "content-type": hit[1], "cache-control": "no-cache", "x-content-type-options": "nosniff" });
     res.end(req.method === "HEAD" ? undefined : body);
   } catch {
     res.writeHead(500, { "content-type": "text/plain" }).end("Could not read file");
