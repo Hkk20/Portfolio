@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Harsha Yarra</title>
+  <meta name="description" content="Harsha Yarra, 18, from Andhra Pradesh. Founder of XEdge. I get obsessed with things and build them.">
+  <meta name="theme-color" content="#f4f4f4">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Harsha Yarra">
+  <meta property="og:description" content="I get obsessed with things and build them.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='.6' y2='1'%3E%3Cstop stop-color='%23fff'/%3E%3Cstop offset='.5' stop-color='%23555'/%3E%3Cstop offset='.55' stop-color='%23111'/%3E%3Cstop offset='1' stop-color='%23ccc'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8'/%3E%3Cpath d='M16 5c5 0 8 3.500 8 9s-3 11-8 11-8-5.500-8-11 3-9 8-9z' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400..700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <script>try { if (localStorage.getItem("mode") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yarra Harsha Komal Kumar",
+    "alternateName": ["Harsha Yarra", "Harsha Kumar"],
+    "email": "mailto:kumarharsha980@gmail.com",
+    "sameAs": [
+      "https://github.com/Hkk20",
+      "https://www.linkedin.com/in/harsha-yarra-33603a287/",
+      "https://dev.to/harsha_kumar",
+      "https://peerlist.io/kumarharsha980"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+  <canvas id="metal" aria-hidden="true"></canvas>
+  <button class="mode" id="mode" type="button" aria-label="Switch to dark mode"><span></span></button>
+
+  <section class="hero" id="top">
+    <div class="frame" aria-hidden="true"></div>
+    <h1 class="name" id="name"><span>Harsha</span> <span>Yarra</span></h1>
+    <img class="photo" id="photo" src="me.webp" width="1475" height="1500" alt="Harsha Yarra" fetchpriority="high">
+    <!-- The name again, only where it crosses the photo. It uses the photo itself as its cut-out shape. -->
+    <div class="front" aria-hidden="true"><p class="name"><span>Harsha</span> <span>Yarra</span></p></div>
+    <div class="edge top">
+      <p></p>
+      <nav aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#hi">connect</a>
+      </nav>
+    </div>
+    <div class="edge bottom">
+      <p>I get obsessed with things<br>and build them.</p>
+      <p class="right">Outstanding<br>obsession,<br>zero mastery.</p>
+    </div>
+  </section>
+
+  <section class="about" id="about" aria-label="About">
+    <p class="say" data-lit>I’m 18. When something grabs me, I can’t let go. I learn just enough to build with it, and the rest on the way.</p>
+    <p class="more">I study computer science and work on AI automation. Right now I can’t leave these alone: AI, startups, Python, the web, Linux, hacking (legally), networks, and Rust (sort of).</p>
+  </section>
+
+  <section class="work" id="work" aria-label="Work">
+    <h2 class="pick">Pick a card</h2>
+    <div class="stage">
+      <div class="deck" id="deck">
+        <div class="holder-back"></div>
+        <article class="card chrome">
+          <div class="face face-a"><b>XEdge</b><span>Startup</span></div>
+          <div class="face face-b" inert>
+            <div class="face-top"><b>XEdge</b><span>Startup, live</span></div>
+            <p>Too many AI tools, no idea which one to use. You tell XEdge what you want to do, and it hands you the tools that belong together and a way to start. Built alone at 18, with no money, between classes.</p>
+            <div class="face-end"><a href="https://xedge.tech" target="_blank" rel="noopener">Visit xedge.tech</a><span>Click the card to put it back</span></div>
+          </div>
+          <button class="hit" type="button" aria-expanded="false" aria-label="Open XEdge" data-name="XEdge"></button>
+        </article>
+        <article class="card steel">
+          <div class="face face-a"><b>Custom automation</b><span>Currently working</span></div>
+          <div class="face face-b" inert>
+            <div class="face-top"><b>Custom automation</b><span>Currently working</span></div>
+            <p>Built outstanding production-level customer handling systems for Globix Books stores. Can’t show it, it’s confidential.</p>
+            <div class="face-end"><strong>Confidential</strong><span>Click the card to put it back</span></div>
+          </div>
+          <button class="hit" type="button" aria-expanded="false" aria-label="Open Custom automation" data-name="Custom automation"></button>
+        </article>
+        <article class="card black">
+          <div class="face face-a"><b>Jarvis</b><span>Still building</span></div>
+          <div class="face face-b" inert>
+            <div class="face-top"><b>Jarvis</b><span>Still building</span></div>
+            <p>My own assistant. It isn’t finished. I’m still building it.</p>
+            <div class="face-end"><span>Click the card to put it back</span></div>
+          </div>
+          <button class="hit" type="button" aria-expanded="false" aria-label="Open Jarvis" data-name="Jarvis"></button>
+        </article>
+        <article class="card white">
+          <div class="face face-a"><b>Tripwire</b><span>Early build</span></div>
+          <div class="face face-b" inert>
+            <div class="face-top"><b>Tripwire</b><span>Early build</span></div>
+            <p>Checks a change to your code before you approve it, and warns you if a password or key slipped in. It began as an idea for the iQOO phone hackathon.</p>
+            <div class="face-end"><a href="https://github.com/Hkk20/Trip-Wire" target="_blank" rel="noopener">See the code</a><span>Click the card to put it back</span></div>
+          </div>
+          <button class="hit" type="button" aria-expanded="false" aria-label="Open Tripwire" data-name="Tripwire"></button>
+        </article>
+        <article class="card grey">
+          <div class="face face-a"><b>Trading bot</b><span>Experiment</span></div>
+          <div class="face face-b" inert>
+            <div class="face-top"><b>Trading bot</b><span>Experiment</span></div>
+            <p>A small program that places buy and sell orders on Binance’s practice market. Real rules, pretend money. Nobody got rich.</p>
+            <div class="face-end"><a href="https://github.com/Hkk20/trading_bot" target="_blank" rel="noopener">See the code</a><span>Click the card to put it back</span></div>
+          </div>
+          <button class="hit" type="button" aria-expanded="false" aria-label="Open Trading bot" data-name="Trading bot"></button>
+        </article>
+        <div class="holder-front"><b>Portfolio</b><span>Yarra Harsha Komal Kumar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="hi" id="hi">
+    <p class="hi-big">connect with me </p>
+    <div class="hi-foot">
+      <p class="mail"><a href="mailto:kumarharsha980@gmail.com">kumarharsha980@gmail.com</a></p>
+      <ul class="out">
+        <li><a href="https://www.linkedin.com/in/harsha-yarra-33603a287/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/Hkk20" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://dev.to/harsha_kumar" target="_blank" rel="noopener">Blog</a></li>
+        <li><a href="https://peerlist.io/kumarharsha980" target="_blank" rel="noopener">Peerlist</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="flip" id="flip" aria-hidden="true"></div>
+
+  <script src="main.js" defer></script>
+</body>
+</html>
